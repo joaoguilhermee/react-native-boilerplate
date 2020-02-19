@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  View,
-  TextInput,
-  TouchableOpacity,
-  Text,
-  FlatList,
-} from 'react-native';
+import { View, Text, FlatList } from 'react-native';
 
 import { getPostsRequest } from '~/store/modules/posts/actions';
 // import { Container } from './styles';

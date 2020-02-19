@@ -1,20 +1,13 @@
-import { takeLatest, call, put, all } from 'redux-saga/effects';
+import { takeLatest, put, all, call } from 'redux-saga/effects';
 import { GET_POSTS_REQUEST, getPostsSuccess, getPostsFailure } from './actions';
 
-import api from '~/services/api';
+import * as posts from '~/models/posts';
 
 export function* getPosts() {
   try {
-    const response = yield call(api.get, 'posts?_limit=1');
-    const { data, status } = response;
-
-    if (status === 200) {
-      yield put(getPostsSuccess(data));
-    } else {
-      throw 'Something get wrong';
-    }
+    const data = yield call(posts.getAll);
+    yield put(getPostsSuccess(data));
   } catch (err) {
-    console.tron.log('err', err);
     yield put(getPostsFailure());
   }
 }
