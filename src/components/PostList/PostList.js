@@ -3,28 +3,23 @@ import { useDispatch, useSelector } from 'react-redux';
 import { View, Text, FlatList } from 'react-native';
 
 import { getPostsRequest } from '~/store/modules/posts/actions';
+import Post from '~/components/Post';
 // import { Container } from './styles';
 
 export default function PostList() {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts.list);
-  const [post, setPost] = useState('');
-
-  function handleAdd() {
-    dispatch(getPostsRequest());
-    setPost('');
-  }
 
   useEffect(() => {
     dispatch(getPostsRequest());
-  }, [dispatch]);
+  }, []);
 
   return (
     <View style={{ paddingTop: 100 }}>
       <FlatList
         data={posts}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => <Text>{item.post}</Text>}
+        keyExtractor={item => String(item.id)}
+        renderItem={({ item }) => <Post item={item} />}
       />
     </View>
   );
