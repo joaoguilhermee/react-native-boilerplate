@@ -1,7 +1,7 @@
 {
   "posts": [
-    { "id": 1, "post": "json-server", "userId": "1" },
-    { "id": 2, "post": "test api", "userId": "2" }
+    { "id": 1, "post": "json-server", "userId": 1 },
+    { "id": 2, "post": "test api", "userId": 2 }
   ],
   "votes": [
     { "postId": 1, "userId": 1 },

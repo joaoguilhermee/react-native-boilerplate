@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Main from '~/pages/Main';
 import Upvotes from '~/pages/Upvotes';
+import { colors } from '~/styles';
 
 const Tab = createBottomTabNavigator();
 
@@ -11,7 +12,7 @@ const Routes = () => {
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
-          activeTintColor: '#EF3340',
+          activeTintColor: colors.primary,
           inactiveTintColor: 'gray',
           size: 30,
           labelStyle: {
