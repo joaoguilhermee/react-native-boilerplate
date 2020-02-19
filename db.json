@@ -1,0 +1,18 @@
+{
+  "posts": [
+    { "id": 1, "post": "json-server", "userId": "1" },
+    { "id": 2, "post": "test api", "userId": "2" }
+  ],
+  "votes": [
+    { "postId": 1, "userId": 1 },
+    { "postId": 2, "userId": 1 },
+    { "postId": 2, "userId": 2 },
+    { "postId": 1, "userId": 3 }
+  ],
+  "users": [
+    { "id": 1, "name": "Joao" },
+    { "id": 2, "name": "Alice" },
+    { "id": 3, "name": "Bruna" }
+  ],
+  "profile": { "id": 1, "name": "Joao" }
+}
