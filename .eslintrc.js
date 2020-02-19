@@ -30,6 +30,7 @@ module.exports = {
     'react/jsx-one-expression-per-line': 'off',
     'global-require': 'off',
     'react-native/no-raw-text': 'off',
+    'no-undef': 'off',
     'no-param-reassign': 'off',
     'no-underscore-dangle': 'off',
     'react/jsx-props-no-spreading': 'off',

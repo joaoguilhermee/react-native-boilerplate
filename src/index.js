@@ -1,7 +1,6 @@
 import React from 'react';
-import { Text } from 'react-native';
+// import '~/config/ReactotronConfig';
+import Test from '~/components/Test';
 
-import './config/ReactotronConfig';
-
-const App = () => <Text>Init</Text>;
+const App = () => <Test />;
 export default App;
