@@ -3,7 +3,8 @@ import api from '~/services/api';
 
 const getAll = async () => {
   try {
-    const response = await api.get('posts?_limit=1');
+    // ?_limit=1
+    const response = await api.get('posts');
     const { data, status } = response;
 
     if (status === 200) {
