@@ -1,10 +1,14 @@
 /* eslint-disable no-useless-catch */
 import api from '~/services/api';
 
-const getAll = async () => {
+const getPosts = async (page, filter, userId) => {
   try {
-    // ?_limit=1
-    const response = await api.get('posts');
+    console.tron.log('API', page, filter);
+    const response = await api.get(
+      `posts${
+        filter === 'voted' ? `${userId}/votes?_expand=post&` : `?`
+      }_page=${page}&_limit=5`
+    );
     const { data, status } = response;
 
     if (status === 200) {
@@ -17,4 +21,4 @@ const getAll = async () => {
   }
 };
 
-export { getAll };
+export { getPosts };

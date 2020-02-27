@@ -1,6 +1,10 @@
 import React from 'react';
-import { Text } from 'react-native';
 
+import { Container, Text } from './styles';
 export default function Post({ item }) {
-  return <Text>{item.post}</Text>;
+  return (
+    <Container>
+      <Text>{item.post}</Text>
+    </Container>
+  );
 }

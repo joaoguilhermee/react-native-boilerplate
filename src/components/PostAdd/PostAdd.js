@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { TextInput, TouchableOpacity, Text } from 'react-native';
 import { addPostsRequest } from '~/store/modules/posts/actions';
 
-// import { Container } from './styles';
+import { AddNew, IconPlus } from './styles';
 
 export default function PostAdd() {
   const dispatch = useDispatch();
@@ -14,7 +14,7 @@ export default function PostAdd() {
   }
   return (
     <>
-      <TextInput
+      {/* <TextInput
         style={{ backgroundColor: 'red' }}
         testID="post-input"
         value={post}
@@ -23,7 +23,11 @@ export default function PostAdd() {
 
       <TouchableOpacity onPress={handleAdd}>
         <Text>Adicionar</Text>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
+
+      <AddNew onPress={() => navigation.navigate('Add')}>
+        <IconPlus />
+      </AddNew>
     </>
   );
 }

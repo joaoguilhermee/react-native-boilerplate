@@ -3,9 +3,11 @@ import { GET_POSTS_REQUEST, getPostsSuccess, getPostsFailure } from './actions';
 
 import * as posts from '~/models/posts';
 
-export function* getPosts() {
+export function* getPosts({ payload }) {
   try {
-    const data = yield call(posts.getAll);
+    console.tron.log('payload', payload);
+    const { page, filters } = payload;
+    const data = yield call(posts.getPosts, page, filters);
     yield put(getPostsSuccess(data));
   } catch (err) {
     yield put(getPostsFailure());
