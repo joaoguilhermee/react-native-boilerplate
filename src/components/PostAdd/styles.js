@@ -1,24 +1,14 @@
 import styled from 'styled-components/native';
-import { metrics, colors } from '~/styles';
+import Btn from '~/components/Button';
+import Ipt from '~/components/Input';
+import { colors } from '~/styles';
 
+export const Input = styled(Ipt)``;
+export const Button = styled(Btn)``;
+export const Label = styled.Text`
+  font-size: 20px;
+  color: ${colors.primary};
+`;
 export const Container = styled.View`
-  position: relative;
-`;
-export const IconPlus = styled.View`
-  width: 20px;
-  height: 20px;
-`;
-export const AddNew = styled.TouchableOpacity`
-  width: 60px;
-  height: 60px;
-  border-radius: 30px;
-  align-self: flex-end;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  /* top: ${metrics.buttonBottom}; */
-  right: ${metrics.padding}px;
-  z-index: 10;
-  padding: 20px;
-  background: ${colors.primary};
-  align-items: center;
-  justify-content: center;
+  flex: 1;
 `;

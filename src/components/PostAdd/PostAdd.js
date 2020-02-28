@@ -1,33 +1,38 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { TextInput, TouchableOpacity, Text } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import { Container, Button, Input, Label } from './styles';
 import { addPostsRequest } from '~/store/modules/posts/actions';
 
-import { AddNew, IconPlus } from './styles';
-
 export default function PostAdd() {
+  const navigation = useNavigation();
   const dispatch = useDispatch();
-  const [post, setPost] = useState('');
-  function handleAdd() {
-    dispatch(addPostsRequest({ post }));
-    setPost('');
-  }
+  const [title, setTitle] = useState('');
+  const [content, setContent] = useState('');
+  const handleAdd = () => {
+    dispatch(addPostsRequest({ title, content }));
+    setTitle('');
+    setContent('');
+
+    navigation.goBack();
+  };
   return (
-    <>
-      {/* <TextInput
-        style={{ backgroundColor: 'red' }}
-        testID="post-input"
-        value={post}
-        onChangeText={setPost}
+    <Container>
+      <Label>Write your post</Label>
+      <Input
+        testID="post-input-title"
+        value={title}
+        placeholder="Title"
+        onChangeText={setTitle}
       />
-
-      <TouchableOpacity onPress={handleAdd}>
-        <Text>Adicionar</Text>
-      </TouchableOpacity> */}
-
-      <AddNew onPress={() => navigation.navigate('Add')}>
-        <IconPlus />
-      </AddNew>
-    </>
+      <Input
+        multiline
+        testID="post-input"
+        placeholder="Content"
+        value={content}
+        onChangeText={setContent}
+      />
+      <Button onPress={() => handleAdd()}>Add</Button>
+    </Container>
   );
 }

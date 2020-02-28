@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Tab from '~/pages/Tab';
 import { getPostsRequest } from '~/store/modules/posts/actions';
 
-export default function Upvotes() {
+export default function Upvotes({ navigation }) {
   const dispatch = useDispatch();
   const posts = useSelector(state => state.posts.list);
 

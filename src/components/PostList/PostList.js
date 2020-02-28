@@ -10,7 +10,7 @@ export default function PostList({ posts, loadMore }) {
         onEndReached={loadMore}
         onEndReachedThreshold={0.2}
         data={posts}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={item => Math.random() * 1000}
         renderItem={({ item }) => <Post item={item} />}
       />
     </View>

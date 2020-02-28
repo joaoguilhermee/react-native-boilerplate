@@ -1,17 +1,28 @@
 /* eslint-disable no-useless-catch */
 import api from '~/services/api';
 
+const addPost = async ({ payload }) => {
+  try {
+    const { content, title } = payload.request;
+    const response = await api.post(`posts`, { content, title, userId: 3 });
+
+    const { data, status } = response;
+
+    if (status === 200 || status === 201) {
+      return data;
+    }
+  } catch (error) {}
+};
 const getPosts = async (page, filter, userId) => {
   try {
-    console.tron.log('API', page, filter);
     const response = await api.get(
       `posts${
         filter === 'voted' ? `${userId}/votes?_expand=post&` : `?`
-      }_page=${page}&_limit=5`
+      }_page=${page}&_limit=5&_order=desc&_sort=id`
     );
     const { data, status } = response;
 
-    if (status === 200) {
+    if (status === 200 || status === 201) {
       return data;
     }
     return [];
@@ -21,4 +32,4 @@ const getPosts = async (page, filter, userId) => {
   }
 };
 
-export { getPosts };
+export { getPosts, addPost };
