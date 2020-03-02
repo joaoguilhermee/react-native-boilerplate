@@ -1,5 +1,0 @@
-Atualizar teste list
-Testar se tá persistindo os dados no localstora
-Testar se a aplicação tá renderizando.
-Testar se ao adiciionar post ele aparece na lista
-Revisar tests
