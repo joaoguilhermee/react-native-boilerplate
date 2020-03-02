@@ -1,8 +1,15 @@
 import React from 'react';
-import 'react-native';
+import { View } from 'react-native';
 import { render } from '@testing-library/react-native';
 import PostList from '~/components/PostList';
 import server from '~/../db.json';
+
+jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => {
+  return {
+    createIconSet: jest.fn(),
+    Icon: jest.fn(),
+  };
+});
 
 jest.mock('react-redux');
 

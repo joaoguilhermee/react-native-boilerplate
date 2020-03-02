@@ -75,6 +75,8 @@
       "node_modules/(?!(jest-|@)?react)",
       "node_modules/?!(react-navigation)",
       "node_modules/?!(react-native-screens)",
+      "node_modules/?!(react-native-vector-icons)",
+      "node_modules/(?!native-base)/",
       "node_modules/(?!(@react-native-community|react-native)/)"
     ]
   }

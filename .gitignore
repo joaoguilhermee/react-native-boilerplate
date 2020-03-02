@@ -61,3 +61,4 @@ buck-out/
 # Tests Coverage
 coverage/
 __tests__/__snapshots__
+tests.txt

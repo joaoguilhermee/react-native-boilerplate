@@ -2,10 +2,17 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import 'react-native';
 import { render } from '@testing-library/react-native';
+
 import Main from '~/pages/Main';
 import server from '~/../db.json';
 import { getPostsRequest } from '~/store/modules/posts/actions';
 
+jest.mock('react-native-vector-icons/MaterialCommunityIcons', () => {
+  return {
+    createIconSet: jest.fn(),
+    Icon: jest.fn(),
+  };
+});
 jest.mock('react-redux');
 
 describe('PostList Components', () => {

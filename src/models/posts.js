@@ -16,9 +16,7 @@ const addPost = async ({ payload }) => {
 const getPosts = async (page, filter, userId) => {
   try {
     const response = await api.get(
-      `posts${
-        filter === 'voted' ? `${userId}/votes?_expand=post&` : `?`
-      }_page=${page}&_limit=5&_order=desc&_sort=id`
+      `posts/?_page=${page}&_limit=5&_order=desc&_sort=id`
     );
     const { data, status } = response;
 

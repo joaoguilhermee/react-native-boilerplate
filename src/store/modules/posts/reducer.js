@@ -1,5 +1,10 @@
 import produce from 'immer';
-import { GET_POSTS_SUCCESS, ADD_POSTS_SUCCESS, GET_POSTS_REQUEST, TOGGLE_POSTS_VOTE_REQUEST } from './actions';
+import {
+  GET_POSTS_SUCCESS,
+  ADD_POSTS_SUCCESS,
+  GET_POSTS_REQUEST,
+  TOGGLE_POSTS_VOTE_REQUEST,
+} from './actions';
 
 export const INITIAL_STATE = {
   list: [],
@@ -19,8 +24,9 @@ export default function posts(state = INITIAL_STATE, action) {
         const { response } = action.payload;
         if (response.length === 0) {
           draft.finished = true;
+        } else {
+          draft.list = [...draft.list, ...response];
         }
-        draft.list = [...draft.list, ...response];
         break;
       }
       case TOGGLE_POSTS_VOTE_REQUEST: {
